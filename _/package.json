@@ -8,11 +8,8 @@
     "npm": "6.9.0"
   },
   "scripts": {
-    "start": "node server/index.js",
-    "backend": "nodemon server/index.js",
-    "frontend": "npm run start --prefix client",
-    "build": "npm run build --prefix client ",
-    "dev": "concurrently \"npm run backend\" \"npm run start --prefix client\""
+    "start": "npm run start --prefix backup",
+    "build": "npm run build --prefix backup"
   },
   "author": "John ahn",
   "license": "ISC",
