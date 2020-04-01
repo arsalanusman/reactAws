@@ -1,0 +1,20 @@
+{
+    "permissions": {
+        "auth": {
+            "reactproject767529ba": [
+                "create",
+                "read",
+                "update",
+                "delete"
+            ]
+        },
+        "function": {
+            "S3Trigger29a49d75": [
+                "create",
+                "read",
+                "update",
+                "delete"
+            ]
+        }
+    }
+}

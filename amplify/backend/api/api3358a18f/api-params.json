@@ -1,0 +1,69 @@
+{
+    "paths": [
+        {
+            "name": "/users/{isbn}",
+            "lambdaFunction": "reactproject89000b07",
+            "privacy": {
+                "protected": true,
+                "auth": [
+                    "/POST",
+                    "/GET",
+                    "/PUT",
+                    "/PATCH",
+                    "/DELETE"
+                ],
+                "unauth": [
+                    "/POST",
+                    "/GET",
+                    "/PUT",
+                    "/PATCH",
+                    "/DELETE"
+                ]
+            }
+        },
+        {
+            "name": "/listing/{isbn}",
+            "lambdaFunction": "reactproject89000b07",
+            "privacy": {
+                "protected": true,
+                "auth": [
+                    "/POST",
+                    "/GET",
+                    "/PUT",
+                    "/PATCH",
+                    "/DELETE"
+                ],
+                "unauth": [
+                    "/POST",
+                    "/GET",
+                    "/PUT",
+                    "/PATCH",
+                    "/DELETE"
+                ]
+            }
+        }
+    ],
+    "resourceName": "api3358a18f",
+    "apiName": "api3358a18f",
+    "functionArns": [
+        {
+            "lambdaFunction": "reactproject89000b07"
+        }
+    ],
+    "privacy": {
+        "auth": 2,
+        "unauth": 2,
+        "authRoleName": "amplify-reactproject-node-61322-authRole",
+        "unAuthRoleName": "amplify-reactproject-node-61322-unauthRole"
+    },
+    "dependsOn": [
+        {
+            "category": "function",
+            "resourceName": "reactproject89000b07",
+            "attributes": [
+                "Name",
+                "Arn"
+            ]
+        }
+    ]
+}

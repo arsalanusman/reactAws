@@ -12,6 +12,27 @@
 			"service": "Lambda",
 			"providerPlugin": "awscloudformation",
 			"build": true
+		},
+		"reactproject89000b07": {
+			"build": true,
+			"providerPlugin": "awscloudformation",
+			"service": "Lambda",
+			"dependsOn": [
+				{
+					"category": "auth",
+					"resourceName": "reactproject767529ba",
+					"attributes": [
+						"UserPoolId"
+					]
+				},
+				{
+					"category": "function",
+					"resourceName": "S3Trigger29a49d75",
+					"attributes": [
+						"Name"
+					]
+				}
+			]
 		}
 	},
 	"storage": {
@@ -26,6 +47,22 @@
 						"Name",
 						"Arn",
 						"LambdaExecutionRole"
+					]
+				}
+			]
+		}
+	},
+	"api": {
+		"api3358a18f": {
+			"service": "API Gateway",
+			"providerPlugin": "awscloudformation",
+			"dependsOn": [
+				{
+					"category": "function",
+					"resourceName": "reactproject89000b07",
+					"attributes": [
+						"Name",
+						"Arn"
 					]
 				}
 			]

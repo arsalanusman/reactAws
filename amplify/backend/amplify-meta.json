@@ -1,0 +1,127 @@
+{
+    "providers": {
+        "awscloudformation": {
+            "AuthRoleName": "amplify-reactproject-node-61322-authRole",
+            "UnauthRoleArn": "arn:aws:iam::858097969640:role/amplify-reactproject-node-61322-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::858097969640:role/amplify-reactproject-node-61322-authRole",
+            "Region": "us-east-1",
+            "DeploymentBucketName": "amplify-reactproject-node-61322-deployment",
+            "UnauthRoleName": "amplify-reactproject-node-61322-unauthRole",
+            "StackName": "amplify-reactproject-node-61322",
+            "StackId": "arn:aws:cloudformation:us-east-1:858097969640:stack/amplify-reactproject-node-61322/4115d510-7288-11ea-98bf-0af60b3b604b",
+            "AmplifyAppId": "d2br618sz9ts5h"
+        }
+    },
+    "auth": {
+        "reactproject767529ba": {
+            "service": "Cognito",
+            "providerPlugin": "awscloudformation",
+            "dependsOn": [],
+            "customAuth": false,
+            "providerMetadata": {
+                "s3TemplateURL": "https://s3.amazonaws.com/amplify-reactproject-node-61322-deployment/amplify-cfn-templates/auth/reactproject767529ba-cloudformation-template.yml",
+                "logicalId": "authreactproject767529ba"
+            },
+            "lastPushTimeStamp": "2020-04-01T10:49:05.402Z",
+            "output": {
+                "AppClientSecret": "1qakca6tkc6jhdedj4v6vsireeot7i1gakddp30ivq0hohdtavf6",
+                "UserPoolId": "us-east-1_jUHrc3HLq",
+                "AppClientIDWeb": "5rbo3clt3q7063a1e366hfno7c",
+                "AppClientID": "5fg9bms2cf0p6m1nqau9q94dle",
+                "IdentityPoolId": "us-east-1:7e8ca34b-f9a7-41ce-a90d-4662dd7f946a",
+                "IdentityPoolName": "reactproject767529ba_identitypool_767529ba__node",
+                "UserPoolName": "reactproject767529ba_userpool_767529ba"
+            },
+            "lastPushDirHash": "sgy5A9kl9hpIkN/dVPZSppf3W+M="
+        }
+    },
+    "function": {
+        "S3Trigger29a49d75": {
+            "service": "Lambda",
+            "providerPlugin": "awscloudformation",
+            "build": true,
+            "lastBuildTimeStamp": "2020-04-01T10:33:33.156Z",
+            "lastPackageTimeStamp": "2020-04-01T10:33:58.383Z",
+            "distZipFilename": "S3Trigger29a49d75-584e4c56656570684732-build.zip",
+            "providerMetadata": {
+                "s3TemplateURL": "https://s3.amazonaws.com/amplify-reactproject-node-61322-deployment/amplify-cfn-templates/function/S3Trigger29a49d75-cloudformation-template.json",
+                "logicalId": "functionS3Trigger29a49d75"
+            },
+            "lastPushTimeStamp": "2020-04-01T10:49:05.412Z",
+            "output": {
+                "Region": "us-east-1",
+                "Arn": "arn:aws:lambda:us-east-1:858097969640:function:S3Trigger29a49d75-node",
+                "Name": "S3Trigger29a49d75-node",
+                "LambdaExecutionRole": "S3Trigger29a49d75LambdaRole29a49d75-node"
+            },
+            "lastPushDirHash": "DGB/1TggTkcZiaDo/cC1RpDOzVQ="
+        },
+        "reactproject89000b07": {
+            "build": true,
+            "providerPlugin": "awscloudformation",
+            "service": "Lambda",
+            "dependsOn": [
+                {
+                    "category": "auth",
+                    "resourceName": "reactproject767529ba",
+                    "attributes": [
+                        "UserPoolId"
+                    ]
+                },
+                {
+                    "category": "function",
+                    "resourceName": "S3Trigger29a49d75",
+                    "attributes": [
+                        "Name"
+                    ]
+                }
+            ],
+            "lastBuildTimeStamp": "2020-04-01T10:33:20.390Z",
+            "lastPackageTimeStamp": "2020-04-01T10:33:39.317Z",
+            "distZipFilename": "reactproject89000b07-6a61547a6979552f7837-build.zip"
+        }
+    },
+    "storage": {
+        "s3846fd52c": {
+            "service": "S3",
+            "providerPlugin": "awscloudformation",
+            "dependsOn": [
+                {
+                    "category": "function",
+                    "resourceName": "S3Trigger29a49d75",
+                    "attributes": [
+                        "Name",
+                        "Arn",
+                        "LambdaExecutionRole"
+                    ]
+                }
+            ],
+            "providerMetadata": {
+                "s3TemplateURL": "https://s3.amazonaws.com/amplify-reactproject-node-61322-deployment/amplify-cfn-templates/storage/s3-cloudformation-template.json",
+                "logicalId": "storages3846fd52c"
+            },
+            "lastPushTimeStamp": "2020-04-01T10:49:05.419Z",
+            "output": {
+                "BucketName": "reactprojectd20db51d4f3747c6bc2f129812c1743c61322-node",
+                "Region": "us-east-1"
+            },
+            "lastPushDirHash": "83H2s0BCFLeELC/anNzVhj5WFYQ="
+        }
+    },
+    "api": {
+        "api3358a18f": {
+            "service": "API Gateway",
+            "providerPlugin": "awscloudformation",
+            "dependsOn": [
+                {
+                    "category": "function",
+                    "resourceName": "reactproject89000b07",
+                    "attributes": [
+                        "Name",
+                        "Arn"
+                    ]
+                }
+            ]
+        }
+    }
+}
